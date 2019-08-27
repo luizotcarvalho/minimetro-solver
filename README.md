@@ -77,3 +77,23 @@ Routes
 
 Results saved in output/1.jpg
 ```
+
+# TODOS
+
+## Stations detection
+
+- [ ] Detect diamond and football stations;
+- [ ] Detect stations in other game modes (creative, inifinity)
+
+## Rivers detection
+
+- [ ] Detect with precision and create a contour to use later in route planning
+
+## Route planning
+
+- [ ] Change route planning strategy from VRP to Min/Max Flow
+- [ ] Plan route based on available resources (trains, bridges)
+
+## Output drawning
+
+- [ ] Draw only in 45deg angles on route paths

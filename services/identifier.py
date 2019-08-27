@@ -1,7 +1,6 @@
 import numpy as np
 from cv2 import cv2
 from services import utils
-from matplotlib import pyplot as plt
 
 def get_type_by_edges(edges, tilt):
     if edges == 3:

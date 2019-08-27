@@ -4,11 +4,11 @@ This is a work in progress solver to minimetro. Currently it can detect stations
 
 # Example
 
-![Input](inputs/1jpg?raw=true "Input")
+![Input](inputs/1.jpg?raw=true "Input")
 
-![Input processed](inputs/proc/1jpg?raw=true "Input processed")
+![Input processed](inputs/proc/1.jpg?raw=true "Input processed")
 
-![Output](outputs/1jpg?raw=true "Output")
+![Output](outputs/1.jpg?raw=true "Output")
 
 # Requirements
 

@@ -94,6 +94,6 @@ Results saved in output/1.jpg
 - [ ] Change route planning strategy from VRP to Min/Max Flow
 - [ ] Plan route based on available resources (trains, bridges)
 
-## Output drawning
+## Output drawing
 
 - [ ] Draw only in 45deg angles on route paths

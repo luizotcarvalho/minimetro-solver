@@ -2,11 +2,11 @@ import numpy as np
 from cv2 import cv2
 
 
-def get_type_by_edges(edges, tilt):
+def get_type_by_edges(edges, tilted):
     if edges == 3:
         return 'triangle'
     elif edges == 4:
-        if tilt:
+        if tilted:
             return 'rhombus'
         else:
             return 'square'
@@ -23,14 +23,14 @@ def get_type_by_edges(edges, tilt):
     elif edges == 12:
         return 'cross'
     else:
-        return 'unknow'
+        return 'unknown'
 
 
 def identify_countors(image):
     stations = []
     image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     image_invert = cv2.bitwise_not(image_gray)
-    contours, hierarchy = cv2.findContours(
+    contours, _ = cv2.findContours(
         image_invert,
         cv2.RETR_EXTERNAL,
         cv2.CHAIN_APPROX_NONE
@@ -45,13 +45,10 @@ def identify_countors(image):
 
         # detect if the square is rotationed
         # TODO: detect in some other way
-        if cnt.ravel()[0] == cx:
-            tilt = True
-        else:
-            tilt = False
+        tilted = cnt.ravel()[0] == cx
 
         station = {
-            "type": get_type_by_edges(len(approx), tilt),
+            "type": get_type_by_edges(len(approx), tilted),
             "pos": (x, y),
             "centroid": (cx, cy),
             "size": (w, h),
@@ -60,6 +57,10 @@ def identify_countors(image):
         stations.append(station)
 
     return stations
+
+
+def identify_interchange(stations):
+    pass
 
 
 def identify_rivers(image):

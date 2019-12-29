@@ -36,12 +36,12 @@ def morpho_open(image):
 def flood(image):
     image_flooded = image.copy()
     h, w = image.shape[:2]
-    mask = np.zeros((h+2, w+2), np.uint8)
+    mask = np.zeros((h + 2, w + 2), np.uint8)
     cv2.floodFill(image_flooded, mask, (0, 0), (0, 0, 0))
     return image_flooded
 
 
-def process_image(image):
+def process(image):
     is_stations_black = detect_black_stations(image)
     threshold = 40 if is_stations_black else 115
 
@@ -64,4 +64,4 @@ def read(file_path):
 
 def read_and_process(file_path):
     image = read(file_path)
-    return process_image(image)
+    return process(image)

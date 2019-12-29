@@ -22,6 +22,6 @@ utils.print_table(routes, title='Routes')
 results = drawer.draw_results(proc_image, stations, rivers, routes)
 
 file_name = os.path.basename(file_path)
-cv2.imwrite('output/%s' % file_name, results)
+cv2.imwrite('outputs/%s' % file_name, results)
 print()
-print('Results saved in output/%s' % file_name)
+print('Results saved in outputs/%s' % file_name)

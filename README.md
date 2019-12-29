@@ -12,6 +12,7 @@ This is a work in progress solver to minimetro. Currently it can detect stations
 
 # Requirements
 
+- Python3
 - OpenCV
 - Numpy
 - Tabulate

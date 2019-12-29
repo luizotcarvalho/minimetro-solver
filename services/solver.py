@@ -12,7 +12,7 @@ def calculate_distances(stations):
         for to_station in stations:
             x = to_station['centroid'][0] - from_station['centroid'][0]
             y = to_station['centroid'][1] - from_station['centroid'][1]
-            distance = int(math.sqrt(math.pow(x) + math.pow(y)))
+            distance = int(math.sqrt(math.pow(x, 2) + math.pow(y, 2)))
             distances.append(distance)
 
         all_distances.append(distances)

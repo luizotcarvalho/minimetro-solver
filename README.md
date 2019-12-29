@@ -4,11 +4,11 @@ This is a work in progress solver to minimetro. Currently it can detect stations
 
 # Example
 
-![Input](inputs/1.jpg?raw=true "Input")
+![Input](demo/input.jpg?raw=true "Input")
 
-![Input processed](inputs/proc/1.jpg?raw=true "Input processed")
+![Input processed](demo/proc.jpg?raw=true "Input processed")
 
-![Output](outputs/1.jpg?raw=true "Output")
+![Output](demo/output.jpg?raw=true "Output")
 
 # Requirements
 
@@ -82,7 +82,9 @@ Results saved in output/1.jpg
 
 ## Stations detection
 
-- [ ] Detect diamond and football stations;
+- [x] Detect basic shapes (square, circle, triangle);
+- [x] Detect advanced shapes (start, cross, rhombus, droplet, pentagon);
+- [ ] Detect very advanced shapes (diamond, football);
 - [ ] Detect stations in other game modes (creative, inifinity)
 
 ## Rivers detection
@@ -91,9 +93,11 @@ Results saved in output/1.jpg
 
 ## Route planning
 
+- [x] Create the scaffolding to route planning;
 - [ ] Change route planning strategy from VRP to Min/Max Flow
 - [ ] Plan route based on available resources (trains, bridges)
 
 ## Output drawing
 
-- [ ] Draw only in 45deg angles on route paths
+- [x] Draw the planned route with simple arrows;
+- [ ] Draw only in 45deg angles on route paths;

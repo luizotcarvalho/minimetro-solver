@@ -1,34 +1,35 @@
 import math
-import numpy as np
 from ortools.constraint_solver import routing_enums_pb2
 from ortools.constraint_solver import pywrapcp
 
+
 def calculate_distances(stations):
     all_distances = []
-    
+
     for from_station in stations:
         distances = []
-        
+
         for to_station in stations:
-            x = math.pow((to_station['centroid'][0] - from_station['centroid'][0]), 2)
-            y = math.pow((to_station['centroid'][1] - from_station['centroid'][1]), 2)
-            distance = int(math.sqrt(x + y))
+            x = to_station['centroid'][0] - from_station['centroid'][0]
+            y = to_station['centroid'][1] - from_station['centroid'][1]
+            distance = int(math.sqrt(math.pow(x) + math.pow(y)))
             distances.append(distance)
-        
+
         all_distances.append(distances)
-           
+
     return all_distances
-     
+
+
 def format_solution(data, manager, routing, solution):
     formated_solutions = []
-    
+
     for vehicle_index in range(data['num_vehicles']):
         index = routing.Start(vehicle_index)
         formated_solution = {
             'vehicle_index': vehicle_index,
             'route': []
-        } 
-        
+        }
+
         while not routing.IsEnd(index):
             node_index = manager.IndexToNode(index)
             formated_solution['route'].append(node_index)
@@ -38,13 +39,18 @@ def format_solution(data, manager, routing, solution):
 
     return formated_solutions
 
+
 def solve(stations, rivers):
     data = {}
     data['distance_matrix'] = calculate_distances(stations)
     data['num_vehicles'] = 4
     data['depot'] = 0
 
-    manager = pywrapcp.RoutingIndexManager(len(data['distance_matrix']), data['num_vehicles'], data['depot'])
+    manager = pywrapcp.RoutingIndexManager(
+        len(data['distance_matrix']),
+        data['num_vehicles'],
+        data['depot']
+    )
     routing = pywrapcp.RoutingModel(manager)
 
     def distance_callback(from_index, to_index):
@@ -54,10 +60,10 @@ def solve(stations, rivers):
 
     transit_callback_index = routing.RegisterTransitCallback(distance_callback)
 
-    #Define cost of each arc.
+    # Define cost of each arc.
     routing.SetArcCostEvaluatorOfAllVehicles(transit_callback_index)
 
-   # Add Distance constraint.
+    # Add Distance constraint.
     distance_dimension_name = 'Distance'
     routing.AddDimension(
         transit_callback_index,
@@ -106,5 +112,3 @@ def solve(stations, rivers):
         return format_solution(data, manager, routing, solution)
     else:
         return []
-
-

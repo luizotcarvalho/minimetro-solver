@@ -1,4 +1,3 @@
-import unittest
 from services import identifier, reader
 
 def _filter_by_type(type, array):
@@ -29,7 +28,7 @@ def filter_crosses(stations):
     return _filter_by_type('cross', stations)
 
 def test_input_1():
-    image = reader.read_and_process('inputs/1.jpg')
+    image = reader.read_and_process('tests/fixtures/1.jpg')
     stations = identifier.identify_countors(image)
     triangles = filter_triangles(stations)
     squares = filter_squares(stations)
@@ -52,7 +51,7 @@ def test_input_1():
     assert len(stations) == 33
 
 def test_input_2():
-    image = reader.read_and_process('inputs/2.jpg')
+    image = reader.read_and_process('tests/fixtures/2.jpg')
     stations = identifier.identify_countors(image)
     triangles = filter_triangles(stations)
     squares = filter_squares(stations)
@@ -71,7 +70,7 @@ def test_input_2():
     assert len(stations) == 24
 
 def test_input_3():
-    image = reader.read_and_process('inputs/3.jpg')
+    image = reader.read_and_process('tests/fixtures/3.jpg')
     stations = identifier.identify_countors(image)
     triangles = filter_triangles(stations)
     squares = filter_squares(stations)
@@ -84,7 +83,7 @@ def test_input_3():
     assert len(stations) == 13
 
 def test_input_4():
-    image = reader.read_and_process('inputs/4.jpg')
+    image = reader.read_and_process('tests/fixtures/4.jpg')
     stations = identifier.identify_countors(image)
     triangles = filter_triangles(stations)
     squares = filter_squares(stations)
@@ -97,7 +96,7 @@ def test_input_4():
     assert len(stations) == 17
 
 def test_input_5():
-    image = reader.read_and_process('inputs/5.jpg')
+    image = reader.read_and_process('tests/fixtures/5.jpg')
     stations = identifier.identify_countors(image)
     triangles = filter_triangles(stations)
     squares = filter_squares(stations)
@@ -112,6 +111,3 @@ def test_input_5():
     assert len(crosses) == 1
     # total
     assert len(stations) == 18
-
-if __name__ == '__main__': 
-    unittest.main() 

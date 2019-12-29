@@ -1,3 +1,6 @@
 .DS_Store
 .ipynb_checkpoints
+.venv
+.vscode
+.pytest_cache
 __pycache__

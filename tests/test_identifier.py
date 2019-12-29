@@ -1,31 +1,41 @@
 from services import identifier, reader
 
+
 def _filter_by_type(type, array):
-    return list(filter(lambda item : item['type'] == type, array))
+    return list(filter(lambda item: item['type'] == type, array))
+
 
 def filter_triangles(stations):
     return _filter_by_type('triangle', stations)
 
+
 def filter_squares(stations):
     return _filter_by_type('square', stations)
 
+
 def filter_rhombuses(stations):
     return _filter_by_type('rhombus', stations)
-   
+
+
 def filter_pentagons(stations):
     return _filter_by_type('pentagon', stations)
+
 
 def filter_droplets(stations):
     return _filter_by_type('droplet', stations)
 
+
 def filter_circles(stations):
     return _filter_by_type('circle', stations)
+
 
 def filter_stars(stations):
     return _filter_by_type('star', stations)
 
+
 def filter_crosses(stations):
     return _filter_by_type('cross', stations)
+
 
 def test_input_1():
     image = reader.read_and_process('tests/fixtures/1.jpg')
@@ -50,6 +60,7 @@ def test_input_1():
     # total
     assert len(stations) == 33
 
+
 def test_input_2():
     image = reader.read_and_process('tests/fixtures/2.jpg')
     stations = identifier.identify_countors(image)
@@ -69,6 +80,7 @@ def test_input_2():
     # total
     assert len(stations) == 24
 
+
 def test_input_3():
     image = reader.read_and_process('tests/fixtures/3.jpg')
     stations = identifier.identify_countors(image)
@@ -82,6 +94,7 @@ def test_input_3():
     # total
     assert len(stations) == 13
 
+
 def test_input_4():
     image = reader.read_and_process('tests/fixtures/4.jpg')
     stations = identifier.identify_countors(image)
@@ -94,6 +107,7 @@ def test_input_4():
     assert len(circles) == 10
     # total
     assert len(stations) == 17
+
 
 def test_input_5():
     image = reader.read_and_process('tests/fixtures/5.jpg')

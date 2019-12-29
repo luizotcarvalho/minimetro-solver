@@ -85,7 +85,8 @@ Results saved in output/1.jpg
 - [x] Detect basic shapes (square, circle, triangle);
 - [x] Detect advanced shapes (start, cross, rhombus, droplet, pentagon);
 - [ ] Detect very advanced shapes (diamond, football);
-- [ ] Detect stations in other game modes (creative, inifinity)
+- [ ] Detect interchange stations;
+- [ ] Detect stations in other game modes (creative, inifinity);
 
 ## Rivers detection
 
